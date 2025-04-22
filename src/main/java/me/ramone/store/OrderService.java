@@ -1,7 +1,13 @@
 package me.ramone.store;
 
 public class OrderService {
-    public void placeOrder(){
+    private PaymentService paymentService;
 
+    public OrderService(PaymentService paymentService) {
+        this.paymentService = paymentService;
+    }
+
+    public void placeOrder(){
+        paymentService.processPayment(10);
     }
 }
