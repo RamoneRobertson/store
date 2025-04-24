@@ -26,7 +26,7 @@ public class AppConfig {
     @Bean
     // Changed the Bean scope to prototype. Protoype will create a new bean every time it is called.
     //By default, Spring will create a single instance of the bean. This is called Singleton scope.
-    @Scope("prototype")
+//    @Scope("prototype")
     public OrderService orderService(){
        if(paymentGateway.equals("stripe")){
            return new OrderService(stripe());

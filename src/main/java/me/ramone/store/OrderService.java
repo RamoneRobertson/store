@@ -1,5 +1,7 @@
 package me.ramone.store;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -20,6 +22,17 @@ public class OrderService {
 
     public void placeOrder(){
         paymentService.processPayment(10);
+    }
+
+    @PostConstruct // This annotation is used to execute code after the bean is initialized
+    // This method is called after the constructor is called
+    public void init(){
+        System.out.println("OrderService PostConstruct");
+    }
+
+    @PreDestroy // This annotation is used to execute code before the bean is destroyed
+    public void cleanup(){
+        System.out.println("OrderService PreDestroy");
     }
 
     // Setter Injection
