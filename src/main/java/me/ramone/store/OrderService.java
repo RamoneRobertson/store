@@ -13,7 +13,7 @@ public class OrderService {
     // Constructor Injection
     // @Autowired
     // lets Spring hand your class the tools it needs, instead of your class building those tools itself
-    public OrderService(@Qualifier("stripe") PaymentService paymentService) {
+    public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 

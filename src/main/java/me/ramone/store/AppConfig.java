@@ -1,11 +1,14 @@
 package me.ramone.store;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
 @Configuration
 public class AppConfig {
+    @Value( "${payment-gateway:stripe}")
+    private String paymentGateway;
 
     // Stripe Payment Service
     @Bean
@@ -21,6 +24,10 @@ public class AppConfig {
 
     @Bean
     public OrderService orderService(){
-        return new OrderService(stripe());
+       if(paymentGateway.equals("stripe")){
+           return new OrderService(stripe());
+       } else{
+           return new OrderService(paypal());
+       }
     }
 }
