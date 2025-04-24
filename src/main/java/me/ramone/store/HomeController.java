@@ -13,7 +13,7 @@ public class HomeController {
     // another annotation that tells the controller how to handle the endpoint /
     @RequestMapping("/") // This annotation requires a
     public String index(){
-        System.out.println("App Nem: " + appName);
+        System.out.println("App Name: " + appName);
         // Whenever a request is mad to the endpoint / or root return the index.html page
         return "index.html";
     }

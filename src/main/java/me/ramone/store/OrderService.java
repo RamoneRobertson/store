@@ -5,15 +5,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class OrderService {
 
     private PaymentService paymentService;
 
     // Constructor Injection
-    @Autowired
+//    @Autowired
     // lets Spring hand your class the tools it needs, instead of your class building those tools itself
-    public OrderService(@Qualifier("paypal") PaymentService paymentService) {
+
+    // Constructor using qulifier to set specific payment service
+//    public OrderService(@Qualifier("paypal") PaymentService paymentService) {
+//        this.paymentService = paymentService;
+//    }
+    public OrderService(@Qualifier("stripe") PaymentService paymentService) {
         this.paymentService = paymentService;
     }
 
