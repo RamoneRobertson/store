@@ -15,6 +15,7 @@ public class OrderService {
     // lets Spring hand your class the tools it needs, instead of your class building those tools itself
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
+        System.out.println("OrderService created");
     }
 
     public void placeOrder(){
