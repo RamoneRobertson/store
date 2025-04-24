@@ -5,9 +5,9 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-@Service("stripe")
-@Primary
+//
+//@Service("stripe")
+//@Primary
 public class StripePaymentService implements PaymentService {
     @Value("${stripe.apiUrl}")
     private String apiUrl;
