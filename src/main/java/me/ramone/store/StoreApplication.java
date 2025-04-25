@@ -14,11 +14,9 @@ public class StoreApplication {
         ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 
         var orderService = context.getBean(OrderService.class);
-        var notificationManager = context.getBean(NotificationManager.class);
         var resource = context.getBean(HeavyResource.class);
 
         orderService.placeOrder();
-        notificationManager.sendNotification("Your order has been placed! 😁");
         context.close(); // We can see our pre destroy method being called here.
     }
 
