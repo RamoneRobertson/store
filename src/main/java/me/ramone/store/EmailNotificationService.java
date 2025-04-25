@@ -2,7 +2,7 @@ package me.ramone.store;
 
 import org.springframework.beans.factory.annotation.Value;
 
-
+// Bean created in AppConfig.java
 public class EmailNotificationService implements NotificationService {
     @Value("${mail.host}")
     private String host;

@@ -1,8 +1,6 @@
 package me.ramone.store;
 
-import org.springframework.stereotype.Service;
-
-//@Service("paypal")
+// Bean created in AppConfig.java
 public class PayPalPaymentService implements PaymentService{
     @Override
     public void processPayment(double amount) {
