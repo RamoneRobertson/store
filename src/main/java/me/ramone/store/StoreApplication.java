@@ -12,11 +12,15 @@ public class StoreApplication {
 
         // ConfigurableApplicationContext implements ApplicationContext so we can use it to manually close the context
         ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+        var userService = context.getBean(UserService.class);
+        userService.register(new User(804578L, "Ramone", "ramone@gmail.com", "123Spring456"));
+        userService.register(new User(804578L, "Ramone", "ramone@gmail.com", "123Spring456"));
 
-        var orderService = context.getBean(OrderService.class);
-        var resource = context.getBean(HeavyResource.class);
 
-        orderService.placeOrder();
+//        var orderService = context.getBean(OrderService.class);
+//        var resource = context.getBean(HeavyResource.class);
+//
+//        orderService.placeOrder();
         context.close(); // We can see our pre destroy method being called here.
     }
 

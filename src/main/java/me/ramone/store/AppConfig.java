@@ -8,6 +8,9 @@ import org.springframework.core.annotation.Order;
 
 @Configuration
 public class AppConfig {
+    @Value("${notification-type:email}")
+    private String notificationType;
+
     @Value( "${payment-gateway:stripe}")
     private String paymentGateway;
 
@@ -24,7 +27,7 @@ public class AppConfig {
     }
 
     @Bean
-    // Changed the Bean scope to prototype. Protoype will create a new bean every time it is called.
+    // Changed the Bean scope to prototype. Prototype will create a new bean every time it is called.
     //By default, Spring will create a single instance of the bean. This is called Singleton scope.
 //    @Scope("prototype")
     public OrderService orderService(){
@@ -34,4 +37,19 @@ public class AppConfig {
            return new OrderService(paypal());
        }
     }
+
+    // Notification Beans
+    @Bean
+    public NotificationService email(){
+        if(notificationType.equals("email")){
+            return new EmailNotificationService();
+        }else {
+            return new SMSNotificationService();
+        }
+    }
+
+//    @Bean
+//    public UserRepository memory(){
+//        return new InMemoryUserRepository();
+//    }
 }

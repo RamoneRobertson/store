@@ -17,7 +17,7 @@ public class OrderService {
     // lets Spring hand your class the tools it needs, instead of your class building those tools itself
     public OrderService(PaymentService paymentService) {
         this.paymentService = paymentService;
-        System.out.println("OrderService created");
+//        System.out.println("OrderService created");
     }
 
     public void placeOrder(){
@@ -27,12 +27,12 @@ public class OrderService {
     @PostConstruct // This annotation is used to execute code after the bean is initialized
     // This method is called after the constructor is called
     public void init(){
-        System.out.println("OrderService PostConstruct");
+//        System.out.println("OrderService PostConstruct");
     }
 
     @PreDestroy // This annotation is used to execute code before the bean is destroyed
     public void cleanup(){
-        System.out.println("OrderService PreDestroy");
+//        System.out.println("OrderService PreDestroy");
     }
 
     // Setter Injection
