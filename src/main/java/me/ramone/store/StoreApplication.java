@@ -23,6 +23,16 @@ public class StoreApplication {
                 .password("password")
                 .build();
 
+        var address = Address.builder()
+                .city("Ikebukuro")
+                .zip("123-4567")
+                .state("Tokyo")
+                .street("Romance-Dori")
+                .build();
+
+        // Wire the objects together
+        user.getAddresses().add(address);
+        address.setUser(user);
     }
 
 }

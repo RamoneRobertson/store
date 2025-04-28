@@ -3,6 +3,9 @@ package me.ramone.store.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -25,5 +28,13 @@ public class User {
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Address> addresses = new ArrayList<>();
+
+    public void addAdress(Address address){
+        addresses.add(address);
+        address.setUser(this);
+    }
 
 }
