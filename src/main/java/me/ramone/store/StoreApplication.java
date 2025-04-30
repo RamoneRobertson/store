@@ -30,9 +30,14 @@ public class StoreApplication {
                 .street("Romance-Dori")
                 .build();
 
+        var tag = new Tag("tag1");
+
+        user.addTag("tag1");
+
         // Wire the objects together
         user.addAdress(address);
         System.out.println(user);
+        System.out.println(user.getTags());
     }
 
 }
