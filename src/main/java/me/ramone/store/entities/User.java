@@ -60,7 +60,6 @@ public class User {
         address.setUser(null);
     }
 
-
     public void addTag(String tagName){
         var tag = new Tag(tagName);
         tags.add(tag);

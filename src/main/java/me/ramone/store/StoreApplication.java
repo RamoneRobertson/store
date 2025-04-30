@@ -23,26 +23,14 @@ public class StoreApplication {
                 .password("password")
                 .build();
 
-        var address = Address.builder()
-                .city("Ikebukuro")
-                .zip("123-4567")
-                .state("Tokyo")
-                .street("Romance-Dori")
-                .build();
 
-        var tag = new Tag("tag1");
         var profile = Profile.builder()
                 .bio("I'm a developer")
                 .build();
 
-        user.addTag("tag1");
-
-        // Wire the objects together
-        user.addAddress(address);
-
-
         user.setProfile(profile);
         profile.setUser(user);
+
         System.out.println(user);
     }
 
