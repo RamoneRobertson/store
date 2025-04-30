@@ -31,13 +31,19 @@ public class StoreApplication {
                 .build();
 
         var tag = new Tag("tag1");
+        var profile = Profile.builder()
+                .bio("I'm a developer")
+                .build();
 
         user.addTag("tag1");
 
         // Wire the objects together
-        user.addAdress(address);
+        user.addAddress(address);
+
+
+        user.setProfile(profile);
+        profile.setUser(user);
         System.out.println(user);
-        System.out.println(user.getTags());
     }
 
 }
