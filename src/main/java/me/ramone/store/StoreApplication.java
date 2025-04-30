@@ -31,8 +31,8 @@ public class StoreApplication {
                 .build();
 
         // Wire the objects together
-        user.getAddresses().add(address);
-        address.setUser(user);
+        user.addAdress(address);
+        System.out.println(user);
     }
 
 }

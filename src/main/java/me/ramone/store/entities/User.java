@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Builder
 @Entity
 @Table(name="users")
@@ -36,6 +37,11 @@ public class User {
     public void addAdress(Address address){
         addresses.add(address);
         address.setUser(this);
+    }
+
+    public void removeAddress(Address address){
+        addresses.remove(address);
+        address.setUser(null);
     }
 
 }
