@@ -19,12 +19,6 @@ public class StoreApplication {
                 .email("email")
                 .password("password")
                 .build();
-
-        var category = new Category((byte)1, "Electronics");
-        var product = new Product(1L, "Samsung TV", new java.math.BigDecimal("1000.00"));
-
-        category.addProduct(product);
-        System.out.println(category);
     }
 
 }
