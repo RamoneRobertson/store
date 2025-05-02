@@ -5,16 +5,6 @@ spring:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-stripe:
-  apiUrl: https://api.stripe.com
-  timeout: 1000
-  enabled: true
-  supported-currencies: USD,JPY,EUR
 
-payment-gateway: stripe
-
-mail:
-  host: https://smtp.gmail.com
-  port: 5761
-
-notification-type: email
+jpa:
+  hibernate:
