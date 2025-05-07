@@ -11,7 +11,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final EntityManager entityManager;
 
-    public void showEntitytate(){
+    public void showEntityState(){
         var user = User.builder()
                 .name("Zani")
                 .email("zani@aeverado.bank.co")
