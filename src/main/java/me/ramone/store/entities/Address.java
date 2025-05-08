@@ -2,6 +2,7 @@ package me.ramone.store.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import me.ramone.store.repositories.AddressRepository;
 import org.springframework.stereotype.Service;
 
 @Entity
@@ -29,7 +30,7 @@ public class Address {
     @Column(name = "state")
     private String state;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @ToString.Exclude
     private User user;

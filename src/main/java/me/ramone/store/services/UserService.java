@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import me.ramone.store.entities.User;
+import me.ramone.store.repositories.AddressRepository;
 import me.ramone.store.repositories.ProfileRepository;
 import me.ramone.store.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
+    private final AddressRepository addressRepository;
 
     @Transactional
     public void showRelatedEntities(){
@@ -44,6 +46,11 @@ public class UserService {
         } else {
             System.out.println(user.getName() + " is not transient / detached");
         }
+    }
+
+    public void fetchAddress(){
+       var address = addressRepository.findById(1L).orElseThrow();
+        System.out.println(address.getState());
     }
 
 

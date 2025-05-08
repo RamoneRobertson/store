@@ -77,6 +77,4 @@ public class User {
     public void removeTag(Tag tag){
         tags.remove(tag);
     }
-
-
 }
