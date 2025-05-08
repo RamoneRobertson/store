@@ -11,9 +11,16 @@ public class StoreApplication {
 
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+
         var repository = context.getBean(UserRepository.class);
 
-        repository.deleteById(1L);
+        var user = User.builder()
+                .name("Zani")
+                .email("zani@aeverado.bank.co")
+                .password("Overtime")
+                .build();
+
+        repository.save(user);
     }
 
 }
