@@ -2,28 +2,49 @@ package me.ramone.store.services;
 
 
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import me.ramone.store.entities.User;
+import me.ramone.store.repositories.ProfileRepository;
 import me.ramone.store.repositories.UserRepository;
+import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
+@Service
 public class UserService {
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
 
-    public void showEntityState(){
+    @Transactional
+    public void showRelatedEntities(){
+       var profile = profileRepository.findById(5L).orElseThrow();
+        System.out.println(profile.getUser().getEmail());
+
+    }
+
+    @Transactional
+    public void showEntityStates (){
         var user = User.builder()
-                .name("Zani")
-                .email("zani@aeverado.bank.co")
+                .name("Uncle Drew")
+                .email("drewschcooledyou@mail.com")
                 .password("password")
                 .build();
 
         if(entityManager.contains(user)){
-            System.out.println("Entity is persistent");
-        } else{
-            System.out.println("Entity is transient/detached");
+            System.out.println(user.getName() + " is persistent");
+        } else {
+            System.out.println(user.getName() + " is transient / detached");
         }
 
         userRepository.save(user);
+
+        if(entityManager.contains(user)){
+            System.out.println(user.getName() + " is persistent");
+        } else {
+            System.out.println(user.getName() + " is not transient / detached");
+        }
     }
+
+
 }
