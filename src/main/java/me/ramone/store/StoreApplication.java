@@ -1,9 +1,13 @@
 package me.ramone.store;
 
+import me.ramone.store.entities.Category;
+import me.ramone.store.entities.Product;
 import me.ramone.store.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.math.BigDecimal;
 
 @SpringBootApplication
 public class StoreApplication {
@@ -12,7 +16,7 @@ public class StoreApplication {
         ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
 
         var service = context.getBean(UserService.class);
-        service.fetchAddress();
+        service.manageProducts();
     }
 
 }
