@@ -88,33 +88,7 @@ public class UserService {
 
     @Transactional
     public void manageProducts(){
-        var category = new Category("Grocery");;
-
-        var product1 = Product.builder()
-                .name("J Taste High Grade Green Tea")
-                .price(BigDecimal.valueOf(1975))
-                .description("J Taste’s High Grade Green Tea With Matcha teabags use only high grade green tea leaves from Kagoshima and pure Kyoto matcha powder from Uji, housed in eco-friendly, plastic-free teabags, to ensure you’re getting the most natural flavors with every sip.")
-                .category(category)
-                .build();
-        var product2 = Product.builder()
-                .name("Chayudo Uji Matcha Sablé Cookies")
-                .price(BigDecimal.valueOf(1429))
-                .description("These matcha sablé cookies are made with real high-grade matcha powder sourced from Uji, Kyoto, the home of matcha green tea. They also contain high quality eggs, and butter, which give the cookies a rich and unique flavor.")
-                .category(category)
-                .build();
-        var product3 = Product.builder()
-                .name("Morinaga Hi-Chew Soft Candy Strawberry Flavor 12 Pieces")
-                .price(BigDecimal.valueOf(990))
-                .description("Would you like to experience the taste and texture of juicy Japanese strawberries while eating a soft candy? Enjoy the great flavor and unique chewiness of this special strawberry Hi-Chew from Morinaga.")
-                .category(category)
-                .build();
-
-        productRepository.save(product1);
-        productRepository.save(product2);
-        productRepository.save(product3);
-    }
-
-    public void addToWishList(){
-        var products = productRepository.findAll();
+        var product = productRepository.findById(4L).orElseThrow();
+        productRepository.delete(product);
     }
 }
